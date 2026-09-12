@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دليل الذكاء الاصطناعي وزيادة الأداء | SmartTools</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --primary: #6366f1;
+      --primary-hover: #4f46e5;
+      --text-color: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #10b981;
+      --ad-bg: #1e293b;
+      --ad-border: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Tajawal', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: radial-gradient(circle at top, #1e1b4b 0%, var(--bg-color) 70%);
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .search-box input {
+      width: 100%;
+      max-width: 550px;
+      padding: 15px 20px;
+      border-radius: 30px;
+      border: 1px solid #334155;
+      background-color: var(--card-bg);
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+    }
+
+    /* تنسيقات مساحات الإعلانات */
+    .ad-slot {
+      background-color: var(--ad-bg);
+      border: 2px dashed var(--ad-border);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      color: var(--text-muted);
+      margin: 25px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100px;
+    }
+
+    .ad-slot span {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .ad-slot-card {
+      grid-column: 1 / -1;
+      background-color: rgba(30, 41, 59, 0.5);
+    }
+
+    .categories {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 35px;
+      flex-wrap: wrap;
+    }
+
+    .cat-btn {
+      background-color: var(--card-bg);
+      color: var(--text-muted);
+      border: 1px solid #334155;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+
+    .cat-btn.active, .cat-btn:hover {
+      background-color: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .tool-card {
+      background-color: var(--card-bg);
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 22px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+    }
+
+    .card-tag {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background-color: rgba(16, 185, 129, 0.15);
+      color: var(--accent);
+      font-size: 0.8rem;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .tool-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.25rem;
+    }
+
+    .tool-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .badge {
+      background-color: #334155;
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      border-radius: 12px;
+    }
+
+    .btn {
+      background-color: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-hover);
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      border-top: 1px solid #334155;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="container">
+      <h1>دليل الذكاء الاصطناعي وزيادة الأداء ⚡</h1>
+      <p>منصة متكاملة تجمع لك أفضل أدوات التصميم، المحتوى، الألعاب وتنسيق الألوان</p>
+      
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="ابحث عن أداة (مثل: ألعاب، تصميم، كتابة، نظام...)" onkeyup="filterTools()">
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- المساحة الإعلانية الأولى (أعلى الصفحة) -->
+    <div class="ad-slot">
+      <span>مساحة إعلانية (728x90 / Banner)</span>
+      <!-- ضع كود Google AdSense أو البنر الإعلاني هنا -->
+      <p style="font-size: 0.9rem;">يمكنك وضع شفرة الإعلان هنا لتظهر للزوار في أعلى الموقع</p>
+    </div>
+  </div>
+
+  <section class="categories container">
+    <button class="cat-btn active" onclick="filterCategory('all', this)">الكل</button>
+    <button class="cat-btn" onclick="filterCategory('design', this)">التصميم والألوان</button>
+    <button class="cat-btn" onclick="filterCategory('content', this)">صناعة المحتوى والنصوص</button>
+    <button class="cat-btn" onclick="filterCategory('gaming', this)">الألعاب وزيادة الأداء</button>
+  </section>
+
+  <main class="container">
+    <div class="tools-grid" id="toolsGrid">
+      
+      <!-- أدوات التصميم وتعديل الصور -->
+      <div class="tool-card" data-category="design">
+        <div class="card-tag">مجاني</div>
+        <h3>Coolors - منسق الألوان</h3>
+        <p>أداة احترافية لتوليد وتنسيق لوحات الألوان المتناسقة للتصاميم والمواقع بسهولة.</p>
+        <div class="card-footer">
+          <span class="badge">ألوان وتصميم</span>
+          <a href="https://coolors.co" target="_blank" class="btn">زيارة الأداة ↗</a>
+        </div>
+      </div>
+
+      <div class="tool-card" data-category="design">
+        <div class="card-tag">مجاني</div>
+        <h3>Canva Magic Studio</h3>
+        <p>مجموعة أدوات ذكاء اصطناعي لتصميم البوستات، الشعارات والإعلانات بسرعة فائقة.</p>
+        <div class="card-footer">
+          <span class="badge">تصميم</span>
+          <a href="https://www.canva.com" target="_blank" class="btn">زيارة الأداة ↗</a>
+        </div>
+      </div>
+
+      <div class="tool-card" data-category="design">
+        <div class="card-tag">جديد ⭐</div>
+        <h3>Remove.bg - إزالة الخلفية</h3>
+        <p>أداة فورية تفصل خلفيات الصور بدقة جبارة خلال ثوانٍ معدودة مجاناً.</p>
+        <div class="card-footer">
+          <span class="badge">تعديل صور</span>
+          <a href="https://www.remove.bg" target="_blank" class="btn">زيارة الأداة ↗</a>
+        </div>
+      </div>
+
+      <!-- المساحة الإعلانية الثانية (وسط المحتوى) -->
+      <div class="ad-slot ad-slot-card">
+        <span>مساحة إعلانية وسطية (In-Feed Ad)</span>
+        <!-- ضع كود الإعلان الأوسط هنا -->
+        <p style="font-size: 0.9rem;">إعلان مميز يظهر بين بطاقات الأدوات للزوار أثناء التصفح</p>
+      </div>
+
+      <div class="tool-card" data-category="design">
+        <div class="card-tag">جديد ⭐</div>
+        <h3>Clipdrop AI</h3>
+        <p>أداة فائقة القوة لإزالة الأجسام غير المرغوبة وتحسين إضاءة الصور بالذكاء الاصطناعي.</p>
+        <div class="card-footer">
+          <span class="badge">تصميم صور</span>
+          <a href="https://clipdrop.co" target="_blank" class="btn">زيارة الأداة ↗</a>
+        </div>
+      </div>
+
+      <!-- أدوات المحتوى والنصوص -->
+      <div class="tool-card" data-category="content">
+        <div class="card-tag">مجاني</div>
+        <h3>ChatGPT & Prompts</h3>
+        <p>مساعد ذكي لكتابة النصوص، إنشاء الأفكار، وصياغة المقالات والرسائل بدقة عالية.</p>
+        <div class="card-footer">
+          <span class="badge">كتابة نصوص</span>
+          <a href="https://chatgpt.com" target="_blank" class="btn">زيارة الأداة ↗</a>
+        </div>
+      </div>
+
+      <div class="tool-card" data-category="content">
+        <div class="card-tag">مجاني</div>
+        <h3>Google Gemini</h3>
+        <p>منصة الذكاء الاصطناعي الشاملة للبحث الفوري وتحليل المحتوى وصناعة المقالات.</p>
+        <div class="card-footer">
+          <span class="badge">محتوى وبحث</span>
+          <a href="https://gemini.google.com" target="_blank" class="btn">زيارة الأداة ↗</a>
+        </div>
+      </div>
+
+      <!-- أدوات الألعاب وزيادة الأداء -->
+      <div class="tool-card" data-category="gaming">
+        <div class="card-tag">مجاني</div>
+        <h3>Razer Cortex - FPS Booster</h3>
+        <p>برنامج ممتاز لزيادة أداء الكمبيوتر وتنظيف الذاكرة المؤقتة أثناء تشغيل الألعاب الثقيلة.</p>
+        <div class="card-footer">
+          <span class="badge">زيادة الأداء</span>
+          <a href="https://www.razer.com/cortex" target="_blank" class="btn">زيارة الأداة ↗</a>
+        </div>
+      </div>
+
+      <div class="tool-card" data-category="gaming">
+        <div class="card-tag">أداة خفيفة</div>
+        <h3>Process Lasso</h3>
+        <p>تحسين استجابة المعالج (CPU) وتخفيف استهلاك البرامج في الخلفية لمنع البطء والـ Lag.</p>
+        <div class="card-footer">
+          <span class="badge">أداء النظام</span>
+          <a href="https://bitsum.com" target="_blank" class="btn">زيارة الأداة ↗</a>
+        </div>
+      </div>
+
+      <div class="tool-card" data-category="gaming">
+        <div class="card-tag">جديد ⭐</div>
+        <h3>MSI Afterburner</h3>
+        <p>أداة احترافية لعرض أداء الجهاز ومعدل الفريمات (FPS) والتحكم في كرت الشاشة والحرارة.</p>
+        <div class="card-footer">
+          <span class="badge">قياس أداء</span>
+          <a href="https://www.msi.com/Landing/afterburner" target="_blank" class="btn">زيارة الأداة ↗</a>
+        </div>
+      </div>
+
+      <div class="tool-card" data-category="gaming">
+        <div class="card-tag">جديد ⭐</div>
+        <h3>GeForce Experience</h3>
+        <p>برنامج تحديث تعريفات كرت Nvidia وتحديث إعدادات الألعاب لتتناسب مع أداء جهازك تلقائياً.</p>
+        <div class="card-footer">
+          <span class="badge">تحسين الألعاب</span>
+          <a href="https://www.nvidia.com/en-us/geforce/geforce-experience/" target="_blank" class="btn">زيارة الأداة ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>جميع الحقوق محفوظة © 2026 - دليل الذكاء الاصطناعي وزيادة الأداء</p>
+  </footer>
+
+  <script>
+    function filterCategory(category, element) {
+      const cards = document.querySelectorAll('.tool-card');
+      const buttons = document.querySelectorAll('.cat-btn');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      element.classList.add('active');
+
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        if (category === 'all' || cardCat === category) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    function filterTools() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.tool-card');
+
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        if (text.includes(input)) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
